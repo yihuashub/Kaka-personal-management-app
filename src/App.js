@@ -7,6 +7,7 @@ import FooterComponent from './components/FooterComponent';
 import CreateItemComponent from './components/CreateItemComponent';
 import ViewItemComponent from './components/ViewItemComponent';
 import CreateCategoryComponent from "./components/CreateCategoryComponent";
+import UserProfileComponent from "./components/UserProfileComponent";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                         <Route path="/view-item/:id" component={ViewItemComponent}></Route>
                         <Route path="/add-category/:id" component={CreateCategoryComponent}></Route>
                         {/* <Route path = "/update-item/:id" component = {updateItemComponent}></Route> */}
+                        <Route path="/profile" component={UserProfileComponent}></Route>
                     </Switch>
                 </div>
                 <FooterComponent/>

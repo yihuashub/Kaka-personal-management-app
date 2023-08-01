@@ -10,7 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import {ButtonGroup, Grid} from "@mui/material";
+import {ButtonGroup, Container, Grid} from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({theme}) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -82,63 +82,65 @@ class ListItemsComponent extends Component {
 
     render() {
         return (
-            <Stack container spacing={3}>
-                <Grid xs={12}>
-                    <h2 className="text-center">Items List</h2>
-                </Grid>
-                <Grid xs={12}>
-                    <Stack spacing={2} direction="row">
-                        <Button variant="contained" onClick={this.addItems}>Add Items</Button>
-                        <Button variant="contained" onClick={this.addCategory}>Add Category</Button>
-                        <Button variant="contained" onClick={this.addItems}>Add Box</Button>
-                    </Stack>
-                </Grid>
-                <Grid xs={12}>
-                    <TableContainer component={Paper}>
-                        <Table sx={{minWidth: 700}} aria-label="customized table">
-                            <TableHead>
-                                <TableRow>
-                                    <StyledTableCell align="center">Item Name</StyledTableCell>
-                                    <StyledTableCell align="center">Item Category</StyledTableCell>
-                                    <StyledTableCell align="center">Item Container</StyledTableCell>
-                                    <StyledTableCell align="center">Item Location</StyledTableCell>
-                                    <StyledTableCell align="right">Actions</StyledTableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
+            <Container maxWidth="xl">
+                <Stack container spacing={3}>
+                    <Grid xs={12}>
+                        <h2 className="text-center">Items List</h2>
+                    </Grid>
+                    <Grid xs={12}>
+                        <Stack spacing={2} direction="row">
+                            <Button variant="contained" onClick={this.addItems}>Add Items</Button>
+                            <Button variant="contained" onClick={this.addCategory}>Add Category</Button>
+                            <Button variant="contained" onClick={this.addItems}>Add Box</Button>
+                        </Stack>
+                    </Grid>
+                    <Grid xs={12}>
+                        <TableContainer component={Paper}>
+                            <Table sx={{minWidth: 700}} aria-label="customized table">
+                                <TableHead>
+                                    <TableRow>
+                                        <StyledTableCell align="center">Item Name</StyledTableCell>
+                                        <StyledTableCell align="center">Item Category</StyledTableCell>
+                                        <StyledTableCell align="center">Item Container</StyledTableCell>
+                                        <StyledTableCell align="center">Item Location</StyledTableCell>
+                                        <StyledTableCell align="right">Actions</StyledTableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
 
-                                {
-                                    this.state.items.map(
-                                        item =>
-                                            <StyledTableRow key={item.id}>
-                                                <StyledTableCell component="th" scope="row"
-                                                                 align="center"> {item.itemName} </StyledTableCell>
-                                                <StyledTableCell align="center">
-                                                    {item.itemCategory ? item.itemCategory.itemCategoryName : '未分类'}
-                                                </StyledTableCell>
-                                                <StyledTableCell
-                                                    align="center"> {item.itemContainer ? item.itemContainer.itemContainerName : "N/A"}</StyledTableCell>
+                                    {
+                                        this.state.items.map(
+                                            item =>
+                                                <StyledTableRow key={item.id}>
+                                                    <StyledTableCell component="th" scope="row"
+                                                                     align="center"> {item.itemName} </StyledTableCell>
+                                                    <StyledTableCell align="center">
+                                                        {item.itemCategory ? item.itemCategory.itemCategoryName : '未分类'}
+                                                    </StyledTableCell>
+                                                    <StyledTableCell
+                                                        align="center"> {item.itemContainer ? item.itemContainer.itemContainerName : "N/A"}</StyledTableCell>
 
-                                                <StyledTableCell
-                                                    align="center"> {(item.itemContainer && item.itemContainer.location) ? item.itemContainer.location.locationName : "N/A"}</StyledTableCell>
-                                                <StyledTableCell align="right">
-                                                    <ButtonGroup variant="contained"
-                                                                 aria-label="outlined primary button group">
-                                                        <Button onClick={() => this.editItems(item.id)}>Update</Button>
-                                                        <Button onClick={() => this.deleteItem(item.id)}
-                                                                color="error">Delete</Button>
-                                                        <Button onClick={() => this.viewItems(item.id)}
-                                                                color="info">View</Button>
-                                                    </ButtonGroup>
-                                                </StyledTableCell>
-                                            </StyledTableRow>
-                                    )
-                                }
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </Grid>
-            </Stack>
+                                                    <StyledTableCell
+                                                        align="center"> {(item.itemContainer && item.itemContainer.location) ? item.itemContainer.location.locationName : "N/A"}</StyledTableCell>
+                                                    <StyledTableCell align="right">
+                                                        <ButtonGroup variant="contained"
+                                                                     aria-label="outlined primary button group">
+                                                            <Button onClick={() => this.editItems(item.id)}>Update</Button>
+                                                            <Button onClick={() => this.deleteItem(item.id)}
+                                                                    color="error">Delete</Button>
+                                                            <Button onClick={() => this.viewItems(item.id)}
+                                                                    color="info">View</Button>
+                                                        </ButtonGroup>
+                                                    </StyledTableCell>
+                                                </StyledTableRow>
+                                        )
+                                    }
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Grid>
+                </Stack>
+            </Container>
         )
     }
 }

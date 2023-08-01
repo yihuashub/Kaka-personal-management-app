@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {rootUrl} from "../config/config";
+import {rootUrl} from "../config";
 
 const ITEM_CAT_URL = rootUrl + "item_categories";
 

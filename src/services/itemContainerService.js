@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {rootUrl} from "../config/config";
+import {rootUrl} from "../config";
 
 const ITEM_CON_URL = rootUrl + "item_containers";
 
