@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import ItemService from '../services/ItemService'
+import ItemService from '../../services/ItemService'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {CardMedia} from "@mui/material";
-import defaultItemIcon from '../assets/default_item_icon.png';
+import defaultItemIcon from '../../assets/default_item_icon.png';
 import Stack from "@mui/material/Stack";
 
 class ViewItemComponent extends Component {

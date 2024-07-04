@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ItemService from '../services/ItemService';
+import ItemService from '../../services/ItemService';
 
 class UpdateItemComponent extends Component {
     constructor(props) {

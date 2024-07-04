@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import ItemService from '../services/ItemService';
-import ItemCategoryService from "../services/itemCategoryService";
-import ItemContainerService from "../services/itemContainerService";
+import ItemService from '../../services/ItemService';
+import ItemCategoryService from "../../services/itemCategoryService";
+import ItemContainerService from "../../services/itemContainerService";
 
 class CreateItemComponent extends Component {
     constructor(props) {

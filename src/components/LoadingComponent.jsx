@@ -1,10 +1,24 @@
 import React from "react";
-import {CircularProgress} from "@mui/material";
+import {Backdrop, CircularProgress} from "@mui/material";
 
-const LoadingComponent = () => (
-    <div className="spinner">
-        <CircularProgress/>
-    </div>
-);
+export default function LoadingComponent() {
+    const [open, setOpen] = React.useState(false);
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleOpen = () => {
+        setOpen(true);
+    };
 
-export default LoadingComponent;
+    return (
+        <div>
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={open}
+                onClick={handleClose}
+            >
+                <CircularProgress color="inherit" />
+            </Backdrop>
+        </div>
+    );
+}

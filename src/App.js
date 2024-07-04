@@ -1,20 +1,21 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import ListItemsComponent from './components/ListItemsComponent';
-import HeaderComponent from './components/HeaderComponent';
+import ListItemsComponent from './components/Item/ListItemsComponent';
+import HeaderComponent from './components/HeaderAndMenu/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
-import CreateItemComponent from './components/CreateItemComponent';
-import ViewItemComponent from './components/ViewItemComponent';
-import CreateCategoryComponent from "./components/CreateCategoryComponent";
+import CreateItemComponent from './components/Item/CreateItemComponent';
+import ViewItemComponent from './components/Item/ViewItemComponent';
+import CreateCategoryComponent from "./components/Category/CreateCategoryComponent";
 import UserProfileComponent from "./components/UserProfileComponent";
+import {Container} from "@mui/material";
 
 function App() {
     return (
         <div>
             <Router>
                 <HeaderComponent/>
-                <div className="container">
+                <Container style={{paddingTop:"2vh"}}>
                     <Switch>
                         <Route path="/" exact component={ListItemsComponent}></Route>
                         <Route path="/items" component={ListItemsComponent}></Route>
@@ -24,7 +25,7 @@ function App() {
                         {/* <Route path = "/update-item/:id" component = {updateItemComponent}></Route> */}
                         <Route path="/profile" component={UserProfileComponent}></Route>
                     </Switch>
-                </div>
+                </Container>
                 <FooterComponent/>
             </Router>
         </div>
